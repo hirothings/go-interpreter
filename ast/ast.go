@@ -42,6 +42,7 @@ func (p *Program) String() string {
 	return out.String()
 }
 
+// Statements
 type LetStatement struct {
 	Token token.Token // token.LET トークン
 	Name  *Identifier
@@ -64,15 +65,6 @@ func (ls *LetStatement) String() string {
 	out.WriteString(";")
 	return out.String()
 }
-
-type Identifier struct {
-	Token token.Token // token.IDENT トークン
-	Value string
-}
-
-func (i *Identifier) expressionNode()      {}
-func (i *Identifier) TokenLiteral() string { return i.Token.Literal }
-func (i *Identifier) String() string       { return i.Value }
 
 type ReturnStatement struct {
 	Token       token.Token // 'return' トークン
@@ -107,3 +99,13 @@ func (es *ExpressionStatement) String() string {
 	}
 	return ""
 }
+
+// Expressions
+type Identifier struct {
+	Token token.Token // token.IDENT トークン
+	Value string
+}
+
+func (i *Identifier) expressionNode()      {}
+func (i *Identifier) TokenLiteral() string { return i.Token.Literal }
+func (i *Identifier) String() string       { return i.Value }
