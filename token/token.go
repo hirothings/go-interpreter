@@ -12,7 +12,7 @@ const (
 	EOF     = "EOF" // end of file
 
 	// 識別子 + リテラル
-	IDENT = "IDENT"
+	IDENT = "IDENT" // 変数, 定数, 関数の名前
 	INT   = "INT"
 
 	// 演算子
